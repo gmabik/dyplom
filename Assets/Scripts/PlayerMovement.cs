@@ -6,19 +6,17 @@ using UnityEngine;
 public class PlayerMovement : Movement
 {
     private float horizontal;
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    private float vertical;
 
     // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(KeyCode.W) && isGrounded) Jump();
+        if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || hasDoubleJump)) Jump();
 
-        if (Input.GetKeyUp(KeyCode.W) && rb.velocity.y > 0f && !isGrounded)
+        if (Input.GetKeyUp(KeyCode.Space) && rb.velocity.y > 0f && !isGrounded)
         {
             rb.velocity = new(rb.velocity.x, rb.velocity.y * 0.5f);
         }
@@ -26,7 +24,7 @@ public class PlayerMovement : Movement
 
     private void FixedUpdate()
     {
-        MoveCharacter(horizontal);
+        MoveCharacter(horizontal, vertical);
         //if(isGrounded == false) FallDown();
     }
 }

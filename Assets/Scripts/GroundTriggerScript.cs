@@ -8,6 +8,7 @@ public class GroundTriggerScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         transform.parent.GetComponent<Movement>().isGrounded = true;
+        transform.parent.GetComponent<Movement>().hasDoubleJump = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
