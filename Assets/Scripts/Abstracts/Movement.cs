@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IDamageable
+{
+    public int hp => default;
+    public void GetDamage(int damage);
+}
+
 [RequireComponent(typeof(Rigidbody2D))]
-public abstract class Movement : MonoBehaviour
+public abstract class Movement : MonoBehaviour, IDamageable
 {
     public bool isGrounded;
     [SerializeField] protected Rigidbody2D rb;
@@ -112,4 +118,6 @@ public abstract class Movement : MonoBehaviour
     {
         rb.MovePosition((Vector2)transform.position + ((Vector2)transform.up * -1f * speed * Time.deltaTime));
     }
+
+    public abstract void GetDamage(int damage);
 }
