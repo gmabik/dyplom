@@ -8,7 +8,7 @@ public class PlayerMovement : Movement
 {
     private float horizontal;
     private float vertical;
-    [SerializeField] private float playerNum;
+    public int playerNum;
     [SerializeField] private int hp;
     [SerializeField] private Slider hpSlider;
 
