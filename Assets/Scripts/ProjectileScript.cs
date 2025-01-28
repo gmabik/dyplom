@@ -20,13 +20,13 @@ public class ProjectileScript : MonoBehaviour
         rb.velocity = -transform.up * speed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.TryGetComponent<IDamageable>(out IDamageable hpScript))
+        if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable hpScript))
         {
             hpScript.GetDamage(damage);
         }
-        if(collision.transform.parent.TryGetComponent<IDamageable>(out IDamageable hpScript2))
+        else if (collision.transform.parent.TryGetComponent<IDamageable>(out IDamageable hpScript2))
         {
             hpScript2.GetDamage(damage);
         }
