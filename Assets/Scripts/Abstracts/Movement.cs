@@ -33,8 +33,8 @@ public abstract class Movement : MonoBehaviour, IDamageable
     }
 
     [Header("Rotating")]
-    [SerializeField] protected MainDirection dirFacing;
-    [SerializeField] protected SubDirection dirLookedAt;
+    public MainDirection dirFacing;
+    public SubDirection dirLookedAt;
     [SerializeField] protected GameObject weapon;
 
     [Space(10)]

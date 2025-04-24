@@ -3,27 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMovement))]
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : Attack
 {
     private int playerNum;
-    [SerializeField] private GameObject projectilePrefab;
     private void Start()
     {
         playerNum = gameObject.GetComponent<PlayerMovement>().playerNum;
+        movement = gameObject.GetComponent<PlayerMovement>();
     }
     void Update()
     {
         if(Input.GetButtonDown("Fire" + playerNum))
         {
-            Attack();
+            switch (attackType)
+            {
+                case AttackType.Ranged:
+                    RangedAttack();
+                    break;
+                case AttackType.Melee:
+                    MeleeAttack();
+                    break;
+            }
+            
         }
-    }
-
-    private void Attack()
-    {
-        GameObject projectile = Instantiate(projectilePrefab);
-        var a = transform.position + transform.right;
-        a.z = -1f;
-        projectile.transform.position = a;
     }
 }
