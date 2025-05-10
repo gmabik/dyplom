@@ -1,26 +1,32 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    public Transform teleportArea;
+    public Transform teleportTarget;
     public float teleportCooldown = 1f;
     private bool canTeleport = true;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (canTeleport && collision.CompareTag("Player"))
         {
-            collision.transform.position = teleportArea.position;
+            collision.transform.position = teleportTarget.position;
+
             StartCoroutine(TeleportCooldown());
+
+            Teleport otherPortal = teleportTarget.GetComponent<Teleport>();
+            if (otherPortal != null)
+            {
+                otherPortal.StartCoroutine(otherPortal.TeleportCooldown());
+            }
         }
     }
 
-   private IEnumerator TeleportCooldown()
+    public IEnumerator TeleportCooldown()
     {
         canTeleport = false;
         yield return new WaitForSeconds(teleportCooldown);
-        canTeleport = true; 
+        canTeleport = true;
     }
 }
