@@ -4218,7 +4218,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1457426007}
     m_Modifications:
     - target: {fileID: 3932844723757382256, guid: 541f7d54e3d0e4d46b98c43c969093e1, type: 3}
       propertyPath: m_Name
@@ -4226,15 +4226,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4565088325894946612, guid: 541f7d54e3d0e4d46b98c43c969093e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3112156
+      value: 9.162157
       objectReference: {fileID: 0}
     - target: {fileID: 4565088325894946612, guid: 541f7d54e3d0e4d46b98c43c969093e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95264065
+      value: 2.1308036
       objectReference: {fileID: 0}
     - target: {fileID: 4565088325894946612, guid: 541f7d54e3d0e4d46b98c43c969093e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.01
+      value: -0.030843837
       objectReference: {fileID: 0}
     - target: {fileID: 4565088325894946612, guid: 541f7d54e3d0e4d46b98c43c969093e1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4242,15 +4242,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4565088325894946612, guid: 541f7d54e3d0e4d46b98c43c969093e1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4565088325894946612, guid: 541f7d54e3d0e4d46b98c43c969093e1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4565088325894946612, guid: 541f7d54e3d0e4d46b98c43c969093e1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4565088325894946612, guid: 541f7d54e3d0e4d46b98c43c969093e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5412,6 +5412,10 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.width
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6975504526959489750, guid: 5e7d9e0f7c5ebed4dba104de9c0c5b93, type: 3}
+      propertyPath: meleeDmg
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8054384210261729355, guid: 5e7d9e0f7c5ebed4dba104de9c0c5b93, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -5630,7 +5634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f69028bab7526a4f968778d177c07d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportArea: {fileID: 1954082910}
+  teleportTarget: {fileID: 1954082910}
   teleportCooldown: 1
 --- !u!61 &302569564
 BoxCollider2D:
@@ -8954,7 +8958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f69028bab7526a4f968778d177c07d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportArea: {fileID: 1123364117}
+  teleportTarget: {fileID: 1123364117}
   teleportCooldown: 1
 --- !u!1 &472607552
 GameObject:
@@ -18502,6 +18506,53 @@ Transform:
   - {fileID: 1293154331}
   m_Father: {fileID: 321784468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1096495884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1096495886}
+  - component: {fileID: 1096495885}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1096495885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096495884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b463e02f0fc404e9ded45557f9f3da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTime: 5
+  totalEventsAmount:
+  - {fileID: 0}
+--- !u!4 &1096495886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096495884}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4017059, y: 0.9482118, z: -0.019469328}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1097637003
 GameObject:
   m_ObjectHideFlags: 0
@@ -18961,7 +19012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f69028bab7526a4f968778d177c07d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportArea: {fileID: 471768383}
+  teleportTarget: {fileID: 471768383}
   teleportCooldown: 1
 --- !u!4 &1123364117 stripped
 Transform:
@@ -24361,6 +24412,7 @@ Transform:
   - {fileID: 755192349}
   - {fileID: 293746678}
   - {fileID: 2075002451}
+  - {fileID: 1936450536}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1458369779
@@ -32144,6 +32196,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1936450536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4565088325894946612, guid: 541f7d54e3d0e4d46b98c43c969093e1, type: 3}
+  m_PrefabInstance: {fileID: 238896656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1938393032
 GameObject:
   m_ObjectHideFlags: 0
@@ -35586,6 +35643,14 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.width
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6975504526959489750, guid: 5e7d9e0f7c5ebed4dba104de9c0c5b93, type: 3}
+      propertyPath: meleeDmg
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975504526959489750, guid: 5e7d9e0f7c5ebed4dba104de9c0c5b93, type: 3}
+      propertyPath: attackType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8054384210261729355, guid: 5e7d9e0f7c5ebed4dba104de9c0c5b93, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -35756,7 +35821,6 @@ SceneRoots:
   - {fileID: 114468322}
   - {fileID: 1442602432}
   - {fileID: 1457426007}
-  - {fileID: 238896656}
   - {fileID: 764443111}
   - {fileID: 134041341}
   - {fileID: 1173176645}
@@ -35765,3 +35829,4 @@ SceneRoots:
   - {fileID: 1902698315}
   - {fileID: 302569566}
   - {fileID: 1954082910}
+  - {fileID: 1096495886}
