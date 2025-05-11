@@ -51,13 +51,14 @@ public abstract class Attack : MonoBehaviour
         if (movement.dirLookedAt == Movement.SubDirection.Main)
         {
             pos += new Vector3(2f * transform.localScale.x, 0f, 0f);
+            print(pos.x);
         }
         else
         {
             pos += new Vector3(0f, 2f * transform.localScale.y * (movement.dirLookedAt == Movement.SubDirection.Up ? 1f : -1f), 0f);
         }
         
-        var hits = Physics2D.BoxCastAll(pos, 3f * transform.localScale, 0f, transform.forward);
+        var hits = Physics2D.BoxCastAll(pos, new(0.4f, 0.4f), 0f, transform.forward);
         if (hits.Count() == 0) return;
 
         foreach (var hit in hits)
