@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
+    #region singleton
+    public static EventManager Instance { get; private set; }
+    private void Awake()
+    {
+        if(Instance != null) Destroy(Instance);
+        Instance = this;
+    }
+    #endregion
+
     [Range(1f, 30f)]
     [SerializeField] private float spawnTime;
 
     [SerializeField] private List<EventAbstract> totalEventsAmount;
+    public List<Movement> players;
     void Start()
     {
         StartCoroutine(spawnEvents());
@@ -22,4 +32,7 @@ public class EventManager : MonoBehaviour
             Instantiate(totalEventsAmount[i]);
         }
     }
+
+    public Movement GetRandomPlayer()
+    => players[Random.Range(0, players.Count)];
 }

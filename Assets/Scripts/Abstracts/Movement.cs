@@ -41,6 +41,7 @@ public abstract class Movement : MonoBehaviour, IDamageable
     [SerializeReference] protected Vector3 scale;
     void Start()
     {
+        EventManager.Instance.players.Add(this);
         rb = GetComponent<Rigidbody2D>();
         hasDoubleJump = true;
         scale = transform.localScale;
