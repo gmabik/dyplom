@@ -4842,6 +4842,7 @@ GameObject:
   - component: {fileID: 3304193527277984971}
   - component: {fileID: 3464350981572608891}
   - component: {fileID: 645508206301410250}
+  - component: {fileID: 7671532098075463053}
   m_Layer: 0
   m_Name: portal2_0 (1)
   m_TagString: Untagged
@@ -4983,3 +4984,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &7671532098075463053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442580003903665791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f69028bab7526a4f968778d177c07d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportTarget: {fileID: 0}
+  teleportCooldown: 1

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
@@ -17,10 +18,15 @@ public class EventManager : MonoBehaviour
     [SerializeField] private float spawnTime;
 
     [SerializeField] private List<EventAbstract> totalEventsAmount;
-    public List<Movement> players;
+    [HideInInspector] public List<Movement> players;
+    [HideInInspector] public List<Camera> cameras;
+
+    public List<Teleport> portals;
     void Start()
     {
         StartCoroutine(spawnEvents());
+
+        cameras.AddRange(Camera.allCameras);
     }
 
     private IEnumerator spawnEvents()
@@ -28,7 +34,7 @@ public class EventManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(spawnTime);
-            int i = Random.Range(0, totalEventsAmount.Count - 1);
+            int i = Random.Range(0, totalEventsAmount.Count);
             Instantiate(totalEventsAmount[i]);
         }
     }

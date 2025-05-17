@@ -29,10 +29,10 @@ public class ProjectileScript : MonoBehaviour
         {
             hpScript.GetDamage(damage);
         }
-        else if (collision.transform.parent != null && collision.transform.parent.TryGetComponent<IDamageable>(out IDamageable hpScript2))
-        {
-            hpScript2.GetDamage(damage);
-        }
+        //else if (collision.transform.parent != null && collision.transform.parent.TryGetComponent<IDamageable>(out IDamageable hpScript2))
+        //{
+        //    hpScript2.GetDamage(damage);
+        //}
 
         Destroy(gameObject);
     }

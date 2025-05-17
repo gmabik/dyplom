@@ -5,7 +5,7 @@ public class Teleport : MonoBehaviour
 {
     public Transform teleportTarget;
     public float teleportCooldown = 1f;
-    private bool canTeleport = true;
+    [SerializeField] private bool canTeleport = true;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,20 +13,20 @@ public class Teleport : MonoBehaviour
         {
             collision.transform.position = teleportTarget.position;
 
-            StartCoroutine(TeleportCooldown());
+            StartCoroutine(TeleportCooldown(teleportCooldown));
 
             Teleport otherPortal = teleportTarget.GetComponent<Teleport>();
             if (otherPortal != null)
             {
-                otherPortal.StartCoroutine(otherPortal.TeleportCooldown());
+                otherPortal.StartCoroutine(otherPortal.TeleportCooldown(teleportCooldown));
             }
         }
     }
 
-    public IEnumerator TeleportCooldown()
+    public IEnumerator TeleportCooldown(float time)
     {
         canTeleport = false;
-        yield return new WaitForSeconds(teleportCooldown);
+        yield return new WaitForSeconds(time);
         canTeleport = true;
     }
 }
