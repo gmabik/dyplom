@@ -36,6 +36,7 @@ public class PlayerMovement : Movement
 
     public override void GetDamage(int damage)
     {
+        if (!canBeHit) return;
         hp -= damage;
         hpSlider.value = hp;
     }

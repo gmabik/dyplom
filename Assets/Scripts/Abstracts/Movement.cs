@@ -19,6 +19,7 @@ public abstract class Movement : MonoBehaviour, IDamageable
     public bool hasDoubleJump;
     [SerializeField] protected float jumpPower;
 
+    protected bool canBeHit = true;
     public enum MainDirection
     {
         Right,
@@ -41,6 +42,7 @@ public abstract class Movement : MonoBehaviour, IDamageable
     [SerializeReference] protected Vector3 scale;
     void Start()
     {
+        canBeHit = true;
         EventManager.Instance.players.Add(this);
         rb = GetComponent<Rigidbody2D>();
         hasDoubleJump = true;
@@ -121,4 +123,14 @@ public abstract class Movement : MonoBehaviour, IDamageable
     }
 
     public abstract void GetDamage(int damage);
+
+    public IEnumerator GainInvincibility(float time)
+    {
+        canBeHit = false;
+        var a = speed;
+        speed /= 2f;
+        yield return new WaitForSeconds(time);
+        canBeHit = true;
+        speed = a;
+    }
 }
