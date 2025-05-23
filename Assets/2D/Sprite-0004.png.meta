@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9499b887b6ec23c4cb016f838feacbc2
+guid: 247ac23fd7adabe43a5e84d4128dbaaf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,64 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: archerIdle2_0
+      name: Sprite-0004_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16.333334
-        height: 21
+        width: 27
+        height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f8081bc8c5562546aae4e101b289178
-      internalID: 1539876096
+      spriteID: 956dc89cb764bbe4ab5d28ed4ddf0c1c
+      internalID: -1974055688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: archerIdle2_1
+      name: Sprite-0004_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 27
         y: 0
-        width: 16.333334
-        height: 21
+        width: 27
+        height: 200
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63b9492ce97711d4b89ed54be2817c88
-      internalID: -1600685695
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: archerIdle2_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16.333334
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6025c395a245e34084971ec6c1f1ff4
-      internalID: 1567094730
+      spriteID: d7c7df8df4993da4da52853514bc829c
+      internalID: -1141878954
       vertices: []
       indices: 
       edges: []
@@ -183,9 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      archerIdle2_0: 1539876096
-      archerIdle2_1: -1600685695
-      archerIdle2_2: 1567094730
+      Sprite-0004_0: -1974055688
+      Sprite-0004_1: -1141878954
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
