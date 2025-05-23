@@ -27,13 +27,13 @@ public abstract class Attack : MonoBehaviour
 
         if (movement.dirLookedAt == Movement.SubDirection.Main)
         {
-            pos += new Vector3(1.5f * transform.localScale.x, 0f, 0f);
+            pos += new Vector3(0.2f * transform.localScale.x, 0f, 0f);
            
             rot.z = transform.localScale.x >= 0 ? rot.z : -rot.z;
         }
         else
         {
-            pos += new Vector3(0f, 1.5f * transform.localScale.y * (movement.dirLookedAt == Movement.SubDirection.Up ? 1f : -1f), 0f);
+            pos += new Vector3(0f, 0.2f * transform.localScale.y * (movement.dirLookedAt == Movement.SubDirection.Up ? 1f : -1f), 0f);
 
             rot.z = movement.dirLookedAt == Movement.SubDirection.Up ? 180f : 0f;
         }
@@ -50,12 +50,12 @@ public abstract class Attack : MonoBehaviour
 
         if (movement.dirLookedAt == Movement.SubDirection.Main)
         {
-            pos += new Vector3(2f * transform.localScale.x, 0f, 0f);
+            pos += new Vector3(0.5f * transform.localScale.x, 0f, 0f);
             print(pos.x);
         }
         else
         {
-            pos += new Vector3(0f, 2f * transform.localScale.y * (movement.dirLookedAt == Movement.SubDirection.Up ? 1f : -1f), 0f);
+            pos += new Vector3(0f, 0.5f * transform.localScale.y * (movement.dirLookedAt == Movement.SubDirection.Up ? 1f : -1f), 0f);
         }
         
         var hits = Physics2D.BoxCastAll(pos, new(0.4f, 0.4f), 0f, transform.forward);
