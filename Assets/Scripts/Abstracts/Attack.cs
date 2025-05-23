@@ -17,8 +17,10 @@ public abstract class Attack : MonoBehaviour
     }
 
     [SerializeField] protected AttackType attackType;
-    protected void RangedAttack()
+    public GameObject RangedAttack()
     {
+        DoAnim();
+
         GameObject projectile = Instantiate(projectilePrefab);
 
         var pos = transform.position;
@@ -42,15 +44,19 @@ public abstract class Attack : MonoBehaviour
         projectile.transform.eulerAngles = rot;
 
         projectile.GetComponent<ProjectileScript>().instigator = gameObject;
+
+        return projectile;
     }
 
-    protected void MeleeAttack()
+    public void MeleeAttack()
     {
+        DoAnim();
+
         var pos = transform.position;
 
         if (movement.dirLookedAt == Movement.SubDirection.Main)
         {
-            pos += new Vector3(0.5f * transform.localScale.x, 0f, 0f);
+            pos += new Vector3(0.3f * transform.localScale.x, 0f, 0f);
             print(pos.x);
         }
         else
@@ -68,5 +74,10 @@ public abstract class Attack : MonoBehaviour
                 damageable.GetDamage(meleeDmg);
             }
         }
+    }
+
+    private void DoAnim()
+    {
+        gameObject.GetComponent<Animator>().SetTrigger("attack");
     }
 }
