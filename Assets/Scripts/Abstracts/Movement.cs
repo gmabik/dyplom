@@ -36,7 +36,8 @@ public abstract class Movement : MonoBehaviour, IDamageable
     [Header("Rotating")]
     public MainDirection dirFacing;
     public SubDirection dirLookedAt;
-    [SerializeField] protected GameObject weapon;
+
+    private Animator animator;
 
     [Space(10)]
     [SerializeReference] protected Vector3 scale;
@@ -47,6 +48,7 @@ public abstract class Movement : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody2D>();
         hasDoubleJump = true;
         scale = transform.localScale;
+        animator = GetComponent<Animator>();
     }
 
     protected void MoveCharacter(float horizontal, float vertical)
@@ -54,6 +56,9 @@ public abstract class Movement : MonoBehaviour, IDamageable
         rb.velocity = new(horizontal * speed, rb.velocity.y);
         ManageFacingDir(horizontal);
         ManageLookedAtDir(vertical);
+
+        if (horizontal != 0) animator.SetBool("isWalking", true);
+        else animator.SetBool("isWalking", false);
     }
 
     protected void ManageFacingDir(float horizontal)
@@ -77,38 +82,16 @@ public abstract class Movement : MonoBehaviour, IDamageable
         if (dirLookedAt != SubDirection.Down && vertical < 0f)
         {
             dirLookedAt = SubDirection.Down;
-            MoveWeapon(dirLookedAt);
         }
         else if (dirLookedAt != SubDirection.Up && vertical > 0f)
         {
             dirLookedAt = SubDirection.Up;
-            MoveWeapon(dirLookedAt);
         }
         else if(dirLookedAt != SubDirection.Main && vertical == 0f)
         {
             dirLookedAt = SubDirection.Main;
-            MoveWeapon(dirLookedAt);
         }
         
-    }
-
-    protected void MoveWeapon(SubDirection dir)
-    {
-        switch (dir)
-        {
-            case SubDirection.Up:
-                weapon.transform.localPosition = new(0f, 1.1f, 0f);
-                weapon.transform.localEulerAngles = new(0f, 0f, 120f);
-                break;
-            case SubDirection.Down:
-                weapon.transform.localPosition = new(0f, -1.1f, 0f);
-                weapon.transform.localEulerAngles = new(0f, 0f, -60f);
-                break;
-            default:
-                weapon.transform.localPosition = new(0.6f, 0f, 0f);
-                weapon.transform.localEulerAngles = new(0f, 0f, 30f);
-                break;
-        }
     }
 
     protected void Jump()
