@@ -35230,8 +35230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1636729485}
-  speed: 0.5
-  countdownTime: 120
+  speed: 100
+  countdownTime: 5
   timerText: {fileID: 2071632907}
 --- !u!1 &1892099927
 GameObject:
@@ -35700,8 +35700,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1636729485}
-  speed: 0.5
-  countdownTime: 120
+  speed: 100
+  countdownTime: 5
   timerText: {fileID: 2071632907}
 --- !u!1 &1917655155
 GameObject:
