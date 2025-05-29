@@ -17,28 +17,44 @@ public class EventManager : MonoBehaviour
     [Range(1f, 30f)]
     [SerializeField] private float spawnTime;
 
-    [SerializeField] private List<EventAbstract> totalEventsAmount;
+    [SerializeField] private List<EventAbstract> events;
     [HideInInspector] public List<Movement> players;
     [HideInInspector] public List<Camera> cameras;
 
     public List<Teleport> portals;
+
+    [SerializeField] private GameObject blackout;
     void Start()
     {
-        StartCoroutine(spawnEvents());
+        StartCoroutine(SpawnEvents());
 
         cameras.AddRange(Camera.allCameras);
+
+        blackout.SetActive(false);
+        StartCoroutine(Blackout());
     }
 
-    private IEnumerator spawnEvents()
+    private IEnumerator SpawnEvents()
     {
         while (true)
         {
             yield return new WaitForSeconds(spawnTime);
-            int i = Random.Range(0, totalEventsAmount.Count);
-            Instantiate(totalEventsAmount[i]);
+            int i = Random.Range(0, events.Count);
+            Instantiate(events[i]);
         }
     }
 
     public Movement GetRandomPlayer()
     => players[Random.Range(0, players.Count)];
+
+    private IEnumerator Blackout()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(10f, 30f));
+            blackout.SetActive(true);
+            yield return new WaitForSeconds(Random.Range(2f, 6f));
+            blackout.SetActive(false);
+        }
+    }
 }
