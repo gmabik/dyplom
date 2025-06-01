@@ -26,6 +26,7 @@ public class PlatformBurningScript : MonoBehaviour
             var a = children[Random.Range(0, children.Count)];
             a.GetComponent<SpriteRenderer>().sprite = burningPlatform;
             a.AddComponent<GiveDamageOnTouch>().damage = 1;
+            a.AddComponent<GiveDamageOnTouch>().dmgCD = 1f;
             children.Remove(a);
         }
     }

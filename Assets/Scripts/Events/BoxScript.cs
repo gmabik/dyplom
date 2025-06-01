@@ -8,16 +8,23 @@ public class BoxScript : MonoBehaviour, IDamageable
 {
     private SpriteRenderer sr;
     private Collider2D _collider;
+    private Rigidbody2D rb;
 
     private Vector3 spawnPos;
     [SerializeField] private float respawnTime;
 
     [SerializeField] private int explosionDamage;
     private bool isExplosive;
+
+    [SerializeField] private GameObject explosionEffect;
+    [SerializeField] private GameObject destroyEffect;
+
+    private GameObject spawnedEffect;
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>();
         spawnPos = transform.position;
         RerollExplosiveness();
     }
@@ -27,26 +34,32 @@ public class BoxScript : MonoBehaviour, IDamageable
         if (isExplosive)
         {
             Explode();
+            spawnedEffect = SpawnEffect(explosionEffect);
         }
+        else spawnedEffect = SpawnEffect(destroyEffect);
+
         StartCoroutine(Respawn());
     }
 
     private IEnumerator Respawn()
     {
+        rb.isKinematic = true;
         sr.enabled = false;
         _collider.enabled = false;
-        yield return new WaitForSeconds(respawnTime);
+        yield return new WaitForSeconds(respawnTime - 0.5f);
         sr.enabled = true;
         _collider.enabled = true;
+        rb.isKinematic = false;
         transform.position = spawnPos;
         RerollExplosiveness();
     }
 
     private void RerollExplosiveness()
         => isExplosive = Random.Range(0, 4) == 3 ? true : false;
+
     private void Explode()
     {
-        var hits = Physics2D.BoxCastAll(transform.position, new(0.4f, 0.4f), 0f, transform.forward);
+        var hits = Physics2D.BoxCastAll(transform.position, new(1f, 1f), 0f, transform.forward);
         if (hits.Count() == 0) return;
 
         foreach (var hit in hits)
@@ -56,5 +69,13 @@ public class BoxScript : MonoBehaviour, IDamageable
                 damageable.GetDamage(explosionDamage);
             }
         }
+    }
+
+    private GameObject SpawnEffect(GameObject effect)
+    {
+        var a = Instantiate(effect, transform);
+        a.transform.localPosition = Vector3.zero;
+        a.transform.localScale = Vector3.one * 35f;
+        return a;
     }
 }

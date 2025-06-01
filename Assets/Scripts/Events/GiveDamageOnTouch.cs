@@ -6,7 +6,7 @@ public class GiveDamageOnTouch : MonoBehaviour
 {
     public int damage = 1;
 
-    public int dmgCD;
+    public float dmgCD;
     public bool isOnCD;
 
     private void OnCollisionStay2D(Collision2D collision)
