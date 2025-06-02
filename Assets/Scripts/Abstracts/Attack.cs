@@ -17,9 +17,9 @@ public abstract class Attack : MonoBehaviour
     }
 
     [SerializeField] protected AttackType attackType;
-    public GameObject RangedAttack()
+    public GameObject RangedAttack(bool needsAnim)
     {
-        DoAnim();
+        if(needsAnim) DoAnim();
 
         GameObject projectile = Instantiate(projectilePrefab);
 
@@ -48,9 +48,9 @@ public abstract class Attack : MonoBehaviour
         return projectile;
     }
 
-    public void MeleeAttack()
+    public void MeleeAttack(bool needsAnim)
     {
-        DoAnim();
+        if (needsAnim) DoAnim();
 
         var pos = transform.position;
 

@@ -6,6 +6,6 @@ public class ThiefClassScript : ClassScript
 {
     protected override void Skill()
     {
-        gameObject.GetComponent<Attack>().RangedAttack();
+        gameObject.GetComponent<Attack>().RangedAttack(false);
     }
 }

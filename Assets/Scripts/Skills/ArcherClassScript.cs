@@ -6,9 +6,9 @@ public class ArcherClassScript : ClassScript
 {
     protected override void Skill()
     {
-        var a = gameObject.GetComponent<Attack>().RangedAttack();
+        var a = gameObject.GetComponent<Attack>().RangedAttack(false);
 
-        var b = gameObject.GetComponent<Attack>().RangedAttack();
+        var b = gameObject.GetComponent<Attack>().RangedAttack(false);
         b.transform.position = b.transform.position + new Vector3(0f, 0.2f, 0f);
 
         if(b.transform.eulerAngles.z > 0 && b.transform.eulerAngles.z < 180) 
@@ -16,7 +16,7 @@ public class ArcherClassScript : ClassScript
         else 
             b.transform.eulerAngles = b.transform.eulerAngles - new Vector3(0f, 0f, 45f);
 
-        var c = gameObject.GetComponent<Attack>().RangedAttack();
+        var c = gameObject.GetComponent<Attack>().RangedAttack(true);
         c.transform.position = c.transform.position + new Vector3(0f, -0.2f, 0f);
 
         if (c.transform.eulerAngles.z > 0 && c.transform.eulerAngles.z < 180) 

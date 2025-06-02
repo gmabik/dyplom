@@ -53,7 +53,7 @@ public class EventManager : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(10f, 30f));
             blackout.SetActive(true);
-            yield return new WaitForSeconds(Random.Range(2f, 6f));
+            yield return new WaitForSeconds(1f);
             blackout.SetActive(false);
         }
     }

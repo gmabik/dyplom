@@ -18,10 +18,10 @@ public class PlayerAttack : Attack
             switch (attackType)
             {
                 case AttackType.Ranged:
-                    RangedAttack();
+                    RangedAttack(true);
                     break;
                 case AttackType.Melee:
-                    MeleeAttack();
+                    MeleeAttack(true);
                     break;
             }
             

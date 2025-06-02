@@ -140,7 +140,7 @@ MonoBehaviour:
   dirLookedAt: 2
   scale: {x: 0, y: 0, z: 0}
   playerNum: 0
-  hp: 10
+  hp: 100
   hpSlider: {fileID: 0}
 --- !u!70 &1018898444839998987
 CapsuleCollider2D:
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7005484132938972296, guid: f7e23f5b59627c04b8f48fc3c42fb5ba, type: 3}
-  meleeDmg: 2
+  meleeDmg: 6
   attackType: 1
 --- !u!95 &5589461071177913357
 Animator:

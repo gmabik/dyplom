@@ -220,7 +220,7 @@ MonoBehaviour:
   dirLookedAt: 2
   scale: {x: 0, y: 0, z: 0}
   playerNum: 0
-  hp: 10
+  hp: 100
   hpSlider: {fileID: 0}
 --- !u!70 &3491794578204287565
 CapsuleCollider2D:

@@ -116,4 +116,11 @@ public abstract class Movement : MonoBehaviour, IDamageable
         canBeHit = true;
         speed = a;
     }
+
+    protected IEnumerator becomeRedWhenDamaged()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
 }

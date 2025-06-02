@@ -23,6 +23,7 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(collision.gameObject.name);
         if (collision.gameObject == instigator || collision.transform.parent?.gameObject == instigator) return;
 
         if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable hpScript))

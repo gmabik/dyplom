@@ -14,6 +14,8 @@ public class PlatformBurningScript : MonoBehaviour
     private void Start()
     {
         children = GetComponentsInChildren<Transform>().ToList();
+        if(children.Contains(transform)) children.Remove(transform);
+
         delay = totalTime / children.Count;
         StartCoroutine(burnPlatform());
     }
@@ -26,7 +28,7 @@ public class PlatformBurningScript : MonoBehaviour
             var a = children[Random.Range(0, children.Count)];
             a.GetComponent<SpriteRenderer>().sprite = burningPlatform;
             a.AddComponent<GiveDamageOnTouch>().damage = 1;
-            a.AddComponent<GiveDamageOnTouch>().dmgCD = 1f;
+            a.AddComponent<GiveDamageOnTouch>().dmgCD = 0.1f;
             children.Remove(a);
         }
     }
