@@ -21,7 +21,6 @@ public class CartScript : OcurringEventAbstract
             isInUse = true;
             _rb.isKinematic = false;
             _rb.AddForce(transform.right * (transform.rotation.z > 0f? -100f : 100f));
-            print(transform.right * (transform.rotation.z > 0f ? -100f : 100f));
             StartCoroutine(ResetEvent());
         }
     }

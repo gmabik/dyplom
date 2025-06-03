@@ -25,7 +25,7 @@ public class ProjectileScript : MonoBehaviour
     {
         if (collision.isTrigger) return;
 
-        if (collision.gameObject == instigator || collision.transform.parent != null ? collision.transform.parent.gameObject : null == instigator) return;
+        if (collision.gameObject == instigator || collision.transform.parent?.gameObject == instigator) return;
 
         if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable hpScript))
         {
