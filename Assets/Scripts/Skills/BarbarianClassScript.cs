@@ -10,4 +10,11 @@ public class BarbarianClassScript : ClassScript
         var movement = GetComponent<Movement>();
         StartCoroutine(movement.GainInvincibility(invincibleTime));
     }
+
+    public override void GetBuff()
+    {
+        var a = gameObject.GetComponent<Movement>();
+        a.StopCoroutine(a.Regen());
+        a.StartCoroutine(a.Regen());
+    }
 }

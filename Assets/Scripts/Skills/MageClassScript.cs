@@ -23,4 +23,17 @@ public class MageClassScript : ClassScript
         else transform.position += (Vector3)dir * tpDist;
 
     }
+
+    public override void GetBuff()
+    {
+        StopCoroutine(LowGravity());
+        StartCoroutine(LowGravity());
+    }
+
+    private IEnumerator LowGravity()
+    {
+        GetComponent<Rigidbody2D>().gravityScale /= 2;
+        yield return new WaitForSeconds(5f);
+        GetComponent<Rigidbody2D>().gravityScale *= 2;
+    }
 }

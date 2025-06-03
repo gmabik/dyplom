@@ -12,7 +12,7 @@ public abstract class ClassScript : MonoBehaviour
     }
 
     [SerializeField] protected float skillCD;
-    private float currentCD;
+    protected float currentCD;
 
     [SerializeField] private RectTransform CDIndicator;
 
@@ -29,4 +29,6 @@ public abstract class ClassScript : MonoBehaviour
     }
 
     protected abstract void Skill();
+
+    public abstract void GetBuff();
 }

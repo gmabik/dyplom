@@ -37,4 +37,9 @@ public class ArcherClassScript : ClassScript
         b.GetComponent<Collider2D>().enabled = true;
         c.GetComponent<Collider2D>().enabled = true;
     }
+
+    public override void GetBuff()
+    {
+        currentCD = 0f;
+    }
 }

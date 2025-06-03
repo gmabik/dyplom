@@ -19,6 +19,8 @@ public abstract class Movement : MonoBehaviour, IDamageable
     public bool hasDoubleJump;
     [SerializeField] protected float jumpPower;
 
+    [SerializeField] protected int hp;
+
     protected bool canBeHit = true;
     public enum MainDirection
     {
@@ -122,5 +124,22 @@ public abstract class Movement : MonoBehaviour, IDamageable
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(0.3f);
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    public IEnumerator BuffSpeed()
+    {
+        var a = speed;
+        speed *= 1.5f;
+        yield return new WaitForSeconds(5f);
+        speed = a;
+    }
+
+    public IEnumerator Regen()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            hp += 10;
+            yield return new WaitForSeconds(1f);
+        }
     }
 }

@@ -8,4 +8,11 @@ public class ThiefClassScript : ClassScript
     {
         gameObject.GetComponent<Attack>().RangedAttack(false);
     }
+
+    public override void GetBuff()
+    {
+        var a = gameObject.GetComponent<Movement>();
+        a.StopCoroutine(a.BuffSpeed());
+        a.StartCoroutine(a.BuffSpeed());
+    }
 }

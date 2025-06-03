@@ -14,6 +14,7 @@ public class EventManager : MonoBehaviour
     }
     #endregion
 
+    [Header("Events")]
     [Range(1f, 30f)]
     [SerializeField] private float spawnTime;
 
@@ -24,6 +25,10 @@ public class EventManager : MonoBehaviour
     public List<Teleport> portals;
 
     [SerializeField] private GameObject blackout;
+
+    [Header("Buffs")]
+    [SerializeField] private GameObject buffPrefab;
+    [SerializeField] private List<Transform> buffSpawns;
     void Start()
     {
         StartCoroutine(SpawnEvents());
@@ -32,6 +37,8 @@ public class EventManager : MonoBehaviour
 
         blackout.SetActive(false);
         StartCoroutine(Blackout());
+
+        StartCoroutine(SpawnBuff());
     }
 
     private IEnumerator SpawnEvents()
@@ -51,10 +58,20 @@ public class EventManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(10f, 30f));
+            yield return new WaitForSeconds(Random.Range(10f, 20f));
             blackout.SetActive(true);
             yield return new WaitForSeconds(1f);
             blackout.SetActive(false);
+        }
+    }
+
+    private IEnumerator SpawnBuff()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(10f, 20f));
+            var a = Instantiate(buffPrefab);
+            a.transform.position = buffSpawns[Random.Range(0, buffSpawns.Count)].position;
         }
     }
 }

@@ -9,7 +9,6 @@ public class PlayerMovement : Movement
     private float horizontal;
     private float vertical;
     public int playerNum;
-    [SerializeField] private int hp;
     [SerializeField] private Slider hpSlider;
 
     // Update is called once per frame
