@@ -14,10 +14,14 @@ public abstract class ClassScript : MonoBehaviour
     [SerializeField] protected float skillCD;
     private float currentCD;
 
+    [SerializeField] private RectTransform CDIndicator;
+
     private void Update()
     {
         currentCD -= Time.deltaTime;
-        if (Input.GetButtonDown("Skill" + playerNum) && currentCD < 0f)
+        if(currentCD < 0f) currentCD = 0f;
+        CDIndicator.sizeDelta = new(CDIndicator.sizeDelta.x, 325 * (currentCD / skillCD));
+        if (Input.GetButtonDown("Skill" + playerNum) && currentCD <= 0f)
         {
             currentCD = skillCD;
             Skill();
