@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class PlayerMovement : Movement
     private float vertical;
     public int playerNum;
     [SerializeField] private Slider hpSlider;
-
+    [SerializeField] private TMP_Text deathCounter;
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +40,29 @@ public class PlayerMovement : Movement
         hp -= damage;
         hpSlider.value = hp;
 
-        StopCoroutine(BecomeRedWhenDamaged());
-        StartCoroutine(BecomeRedWhenDamaged());
+        if (hp <= 0) StartCoroutine(Respawn());
+        else
+        {
+            StopCoroutine(BecomeRedWhenDamaged());
+            StartCoroutine(BecomeRedWhenDamaged());
+        }
+    }
+
+    protected IEnumerator Respawn()
+    {
+        canMove = false;
+        canBeHit = false;
+        deathCount++;
+        deathCounter.text = deathCount.ToString();
+        GetComponent<SpriteRenderer>().enabled = false;
+
+        yield return new WaitForSeconds(3f);
+
+        transform.position = spawnPos;
+        GetComponent<SpriteRenderer>().enabled = true;
+        hp = 100;
+        hpSlider.value = hp;
+        canMove = true;
+        canBeHit = true;
     }
 }

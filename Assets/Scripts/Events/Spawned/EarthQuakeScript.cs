@@ -29,7 +29,7 @@ public class EarthQuakeScript : EventAbstract
         {
             float b = Random.Range(0.15f, 0.4f);
 
-            camera.DOLocalMove(new(Random.Range(-0.6f, 0.6f), Random.Range(-0.6f, 0.6f), -65f), b);
+            camera.DOLocalMove(new(Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f), -65f), b);
 
             yield return new WaitForSeconds(b);
             a -= b;

@@ -59,7 +59,7 @@ public class BoxScript : MonoBehaviour, IDamageable
 
     private void Explode()
     {
-        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, new(2f, 2f), 0f, transform.up);
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, new(0.5f, 0.5f), 0f, transform.up);
         if (hits.Count() == 0) return;
 
         foreach (var hit in hits)

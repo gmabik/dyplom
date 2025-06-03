@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public interface IDamageable
@@ -22,6 +23,9 @@ public abstract class Movement : MonoBehaviour, IDamageable
     [SerializeField] protected int hp;
 
     protected bool canBeHit = true;
+
+    protected Vector3 spawnPos;
+    protected int deathCount;
     public enum MainDirection
     {
         Right,
@@ -43,18 +47,24 @@ public abstract class Movement : MonoBehaviour, IDamageable
 
     [Space(10)]
     [SerializeReference] protected Vector3 scale;
+
+    protected bool canMove;
     void Start()
     {
+        canMove = true;
         canBeHit = true;
         EventManager.Instance.players.Add(this);
         rb = GetComponent<Rigidbody2D>();
         hasDoubleJump = true;
         scale = transform.localScale;
         animator = GetComponent<Animator>();
+        spawnPos = transform.position;
     }
 
     protected void MoveCharacter(float horizontal, float vertical)
     {
+        if (!canMove) return;
+
         rb.velocity = new(horizontal * speed, rb.velocity.y);
         ManageFacingDir(horizontal);
         ManageLookedAtDir(vertical);
