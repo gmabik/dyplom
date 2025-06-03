@@ -31,14 +31,14 @@ public class BoxScript : MonoBehaviour, IDamageable
 
     public void GetDamage(int damage)
     {
+        StartCoroutine(Respawn());
+
         if (isExplosive)
         {
             Explode();
             spawnedEffect = SpawnEffect(explosionEffect);
         }
         else spawnedEffect = SpawnEffect(destroyEffect);
-
-        StartCoroutine(Respawn());
     }
 
     private IEnumerator Respawn()
@@ -59,7 +59,7 @@ public class BoxScript : MonoBehaviour, IDamageable
 
     private void Explode()
     {
-        var hits = Physics2D.BoxCastAll(transform.position, new(1f, 1f), 0f, transform.forward);
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, new(2f, 2f), 0f, transform.up);
         if (hits.Count() == 0) return;
 
         foreach (var hit in hits)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpikeScript : OcurringEventAbstract
 {
     [SerializeField] private int damage = 1;
+    private bool isInvincible = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,6 +13,7 @@ public class SpikeScript : OcurringEventAbstract
         {
             isInUse = true;
             _rb.isKinematic = false;
+            StartCoroutine(GainInvincibility());
         }
     }
 
@@ -22,7 +24,17 @@ public class SpikeScript : OcurringEventAbstract
         if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable entity))
             entity.GetDamage(damage);
 
-        ShouldBeHidden(true);
-        StartCoroutine(ResetEvent());
+        if (!isInvincible)
+        {
+            ShouldBeHidden(true);
+            StartCoroutine(ResetEvent());
+        }
+    }
+
+    public IEnumerator GainInvincibility()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(0.3f);
+        isInvincible = false;
     }
 }
