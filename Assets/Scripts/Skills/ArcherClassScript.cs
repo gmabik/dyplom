@@ -24,10 +24,10 @@ public class ArcherClassScript : ClassScript
         else
             c.transform.eulerAngles = c.transform.eulerAngles - new Vector3(0f, 0f, -45f);
 
-        StartCoroutine(manageCollision(a, b, c));
+        StartCoroutine(ManageCollision(a, b, c));
     }
 
-    private IEnumerator manageCollision(GameObject a, GameObject b, GameObject c)
+    private IEnumerator ManageCollision(GameObject a, GameObject b, GameObject c)
     {
         a.GetComponent<Collider2D>().enabled = false;
         b.GetComponent<Collider2D>().enabled = false;

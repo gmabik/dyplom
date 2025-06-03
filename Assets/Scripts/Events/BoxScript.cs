@@ -55,7 +55,7 @@ public class BoxScript : MonoBehaviour, IDamageable
     }
 
     private void RerollExplosiveness()
-        => isExplosive = Random.Range(0, 4) == 3 ? true : false;
+        => isExplosive = Random.Range(0, 4) == 3;
 
     private void Explode()
     {

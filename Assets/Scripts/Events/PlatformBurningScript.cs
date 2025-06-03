@@ -17,10 +17,10 @@ public class PlatformBurningScript : MonoBehaviour
         if(children.Contains(transform)) children.Remove(transform);
 
         delay = totalTime / children.Count;
-        StartCoroutine(burnPlatform());
+        StartCoroutine(BurnPlatform());
     }
 
-    private IEnumerator burnPlatform()
+    private IEnumerator BurnPlatform()
     {
         while (children.Count > 0)
         {

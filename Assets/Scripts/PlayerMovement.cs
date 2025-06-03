@@ -40,7 +40,7 @@ public class PlayerMovement : Movement
         hp -= damage;
         hpSlider.value = hp;
 
-        StopCoroutine(becomeRedWhenDamaged());
-        StartCoroutine(becomeRedWhenDamaged());
+        StopCoroutine(BecomeRedWhenDamaged());
+        StartCoroutine(BecomeRedWhenDamaged());
     }
 }

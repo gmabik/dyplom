@@ -18,11 +18,11 @@ public class EarthQuakeScript : EventAbstract
 
         foreach (var cam in EventManager.Instance.cameras)
         {
-            StartCoroutine(shakeCamera(cam.transform));
+            StartCoroutine(ShakeCamera(cam.transform));
         }
     }
 
-    private IEnumerator shakeCamera(Transform camera)
+    private IEnumerator ShakeCamera(Transform camera)
     {
         float a = camShakeTime;
         while (a > 0f)

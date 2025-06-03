@@ -102,7 +102,7 @@ public abstract class Movement : MonoBehaviour, IDamageable
 
     protected void FallDown()
     {
-        rb.MovePosition((Vector2)transform.position + ((Vector2)transform.up * -1f * speed * Time.deltaTime));
+        rb.MovePosition((Vector2)transform.position + (-1f * speed * Time.deltaTime * (Vector2)transform.up));
     }
 
     public abstract void GetDamage(int damage);
@@ -117,7 +117,7 @@ public abstract class Movement : MonoBehaviour, IDamageable
         speed = a;
     }
 
-    protected IEnumerator becomeRedWhenDamaged()
+    protected IEnumerator BecomeRedWhenDamaged()
     {
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(0.3f);
