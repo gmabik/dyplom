@@ -25,7 +25,6 @@ public abstract class Movement : MonoBehaviour, IDamageable
     protected bool canBeHit = true;
 
     protected Vector3 spawnPos;
-    protected int deathCount;
     public enum MainDirection
     {
         Right,

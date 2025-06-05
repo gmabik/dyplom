@@ -10,8 +10,7 @@ public class PlayerMovement : Movement
     private float horizontal;
     private float vertical;
     public int playerNum;
-    [SerializeField] private Slider hpSlider;
-    [SerializeField] private TMP_Text deathCounter;
+    public Slider hpSlider;
     // Update is called once per frame
     void Update()
     {
@@ -40,29 +39,18 @@ public class PlayerMovement : Movement
         hp -= damage;
         hpSlider.value = hp;
 
-        if (hp <= 0) StartCoroutine(Respawn());
+        if (hp <= 0)
+        {
+            canMove = false;
+            canBeHit = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+
+            GameCycleManager.Instance.StartCoroutine(GameCycleManager.Instance.PlayerDied(playerNum));
+        }
         else
         {
             StopCoroutine(BecomeRedWhenDamaged());
             StartCoroutine(BecomeRedWhenDamaged());
         }
-    }
-
-    protected IEnumerator Respawn()
-    {
-        canMove = false;
-        canBeHit = false;
-        deathCount++;
-        deathCounter.text = deathCount.ToString();
-        GetComponent<SpriteRenderer>().enabled = false;
-
-        yield return new WaitForSeconds(3f);
-
-        transform.position = spawnPos;
-        GetComponent<SpriteRenderer>().enabled = true;
-        hp = 100;
-        hpSlider.value = hp;
-        canMove = true;
-        canBeHit = true;
     }
 }

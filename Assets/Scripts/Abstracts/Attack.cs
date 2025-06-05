@@ -57,7 +57,6 @@ public abstract class Attack : MonoBehaviour
         if (movement.dirLookedAt == Movement.SubDirection.Main)
         {
             pos += new Vector3(0.3f * transform.localScale.x, 0f, 0f);
-            print(pos.x);
         }
         else
         {
