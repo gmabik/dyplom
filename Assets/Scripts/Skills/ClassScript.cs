@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class ClassScript : MonoBehaviour
 {
     private int playerNum;
+    [SerializeField] private AudioClip skillAudio;
     private void Start()
     {
         playerNum = gameObject.GetComponent<PlayerMovement>().playerNum;
@@ -25,6 +26,7 @@ public abstract class ClassScript : MonoBehaviour
         {
             currentCD = skillCD;
             Skill();
+            GetComponent<AudioSource>().PlayOneShot(skillAudio);
         }
     }
 

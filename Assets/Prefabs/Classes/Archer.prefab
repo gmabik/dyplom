@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 8923163126505178390}
   - component: {fileID: 3935636154651094703}
   - component: {fileID: 4836923852127999450}
+  - component: {fileID: 5284742481781334993}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Player
@@ -216,12 +217,13 @@ MonoBehaviour:
   speed: 5
   hasDoubleJump: 1
   jumpPower: 8
+  hp: 100
   dirFacing: 0
   dirLookedAt: 2
   scale: {x: 0, y: 0, z: 0}
   playerNum: 0
-  hp: 100
   hpSlider: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 0497e61114a7ee540be199d38bbc8a81, type: 3}
 --- !u!70 &3491794578204287565
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -272,6 +274,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7005484132938972296, guid: f7e23f5b59627c04b8f48fc3c42fb5ba, type: 3}
   meleeDmg: 2
   attackType: 0
+  attackSound: {fileID: 8300000, guid: 6dc54a2517b2676409f7722aaaf3778e, type: 3}
 --- !u!95 &3935636154651094703
 Animator:
   serializedVersion: 5
@@ -305,7 +308,105 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5baf03147abca434bb9cd5f587e16d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillAudio: {fileID: 8300000, guid: 70314eecbd96b4a43aed2327ecc77cc3, type: 3}
   skillCD: 3
+  CDIndicator: {fileID: 0}
+--- !u!82 &5284742481781334993
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2407152394138908897}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 1000000
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7974104295429868459
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +417,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5944141324580793300}
   - component: {fileID: 3602265528117516846}
-  - component: {fileID: 4250582639934112739}
   - component: {fileID: 3035129989629417698}
   m_Layer: 0
   m_Name: Main Camera
@@ -391,14 +491,6 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4250582639934112739
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7974104295429868459}
-  m_Enabled: 1
 --- !u!114 &3035129989629417698
 MonoBehaviour:
   m_ObjectHideFlags: 0

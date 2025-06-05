@@ -11,6 +11,7 @@ public class PlayerMovement : Movement
     private float vertical;
     public int playerNum;
     public Slider hpSlider;
+    [SerializeField] private AudioClip deathSound;
     // Update is called once per frame
     void Update()
     {
@@ -44,6 +45,8 @@ public class PlayerMovement : Movement
             canMove = false;
             canBeHit = false;
             GetComponent<SpriteRenderer>().enabled = false;
+
+            GetComponent<AudioSource>().PlayOneShot(deathSound);
 
             GameCycleManager.Instance.StartCoroutine(GameCycleManager.Instance.PlayerDied(playerNum));
         }
