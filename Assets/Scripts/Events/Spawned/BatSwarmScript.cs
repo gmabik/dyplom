@@ -17,6 +17,5 @@ public class BatSwarmScript : FlyDamageTrigger
 
         dir = EventManager.Instance.GetRandomPlayer().transform.position - transform.position;
         dir.Normalize();
-        
     }
 }
