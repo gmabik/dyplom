@@ -121,10 +121,12 @@ public abstract class Movement : MonoBehaviour, IDamageable
     public IEnumerator GainInvincibility(float time)
     {
         canBeHit = false;
+        GetComponent<SpriteRenderer>().color = Color.blue;
         var a = speed;
         speed /= 2f;
         yield return new WaitForSeconds(time);
         canBeHit = true;
+        GetComponent<SpriteRenderer>().color = Color.white;
         speed = a;
     }
 
@@ -148,7 +150,10 @@ public abstract class Movement : MonoBehaviour, IDamageable
         for (int i = 0; i < 5; i++)
         {
             hp += 10;
+            UpdateHPUI();
             yield return new WaitForSeconds(1f);
         }
     }
+
+    protected abstract void UpdateHPUI();
 }

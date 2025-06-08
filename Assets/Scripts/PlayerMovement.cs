@@ -38,7 +38,7 @@ public class PlayerMovement : Movement
     {
         if (!canBeHit) return;
         hp -= damage;
-        hpSlider.value = hp;
+        UpdateHPUI();
 
         if (hp <= 0)
         {
@@ -56,4 +56,7 @@ public class PlayerMovement : Movement
             StartCoroutine(BecomeRedWhenDamaged());
         }
     }
+
+    protected override void UpdateHPUI()
+    => hpSlider.value = hp;
 }
