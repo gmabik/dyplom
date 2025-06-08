@@ -173,4 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instigator: {fileID: 0}
   speed: 5
-  damage: 8
+  damage: 20

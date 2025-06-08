@@ -22,7 +22,10 @@ public class ClassSelectorScript : MonoBehaviour
     public SerializedDictionary<Class, string> classDesc;
 
     [SerializedDictionary("Class", "Image")]
-    public SerializedDictionary<Class, Sprite> classImages;
+    public SerializedDictionary<Class, Sprite> classSkillImages;
+
+    [SerializedDictionary("Class", "Buff Description")]
+    public SerializedDictionary<Class, string> classBuffDesc;
 
     [SerializeField] private Image player1ClassImage;
     [SerializeField] private Image player2ClassImage;
@@ -33,6 +36,9 @@ public class ClassSelectorScript : MonoBehaviour
     [SerializeField] private Image player1ClassDescImage;
     [SerializeField] private Image player2ClassDescImage;
 
+    [SerializeField] private TMP_Text player1ClassBuffDescText;
+    [SerializeField] private TMP_Text player2ClassBuffDescText;
+
     private int player1Class = 0;
     private int player2Class = 0;
 
@@ -40,11 +46,13 @@ public class ClassSelectorScript : MonoBehaviour
     {
         player1ClassImage.sprite = classSprites.GetValueOrDefault((Class)player1Class);
         player1ClassDescText.text = classDesc.GetValueOrDefault((Class)player1Class);
-        player1ClassDescImage.sprite = classImages.GetValueOrDefault((Class)player1Class);
+        player1ClassDescImage.sprite = classSkillImages.GetValueOrDefault((Class)player1Class);
+        player1ClassBuffDescText.text = classBuffDesc.GetValueOrDefault((Class)player1Class);
 
         player2ClassImage.sprite = classSprites.GetValueOrDefault((Class)player2Class);
         player2ClassDescText.text = classDesc.GetValueOrDefault((Class)player2Class);
-        player2ClassDescImage.sprite = classImages.GetValueOrDefault((Class)player2Class);
+        player2ClassDescImage.sprite = classSkillImages.GetValueOrDefault((Class)player2Class);
+        player2ClassBuffDescText.text = classBuffDesc.GetValueOrDefault((Class)player2Class);
     }
 
     public void ChangeClassPlayer1(int dir)
@@ -56,7 +64,8 @@ public class ClassSelectorScript : MonoBehaviour
 
         player1ClassImage.sprite = classSprites.GetValueOrDefault((Class)player1Class);
         player1ClassDescText.text = classDesc.GetValueOrDefault((Class)player1Class);
-        player1ClassDescImage.sprite = classImages.GetValueOrDefault((Class)player1Class);
+        player1ClassDescImage.sprite = classSkillImages.GetValueOrDefault((Class)player1Class);
+        player1ClassBuffDescText.text = classBuffDesc.GetValueOrDefault((Class)player1Class);
     }
 
     public void ChangeClassPlayer2(int dir)
@@ -68,7 +77,8 @@ public class ClassSelectorScript : MonoBehaviour
 
         player2ClassImage.sprite = classSprites.GetValueOrDefault((Class)player2Class);
         player2ClassDescText.text = classDesc.GetValueOrDefault((Class)player2Class);
-        player2ClassDescImage.sprite = classImages.GetValueOrDefault((Class)player2Class);
+        player2ClassDescImage.sprite = classSkillImages.GetValueOrDefault((Class)player2Class);
+        player2ClassBuffDescText.text = classBuffDesc.GetValueOrDefault((Class)player2Class);
     }
 
     public ClassSelectSaver selectedClasses;

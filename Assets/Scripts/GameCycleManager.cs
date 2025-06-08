@@ -25,6 +25,9 @@ public class GameCycleManager : MonoBehaviour
     [SerializedDictionary("Class", "Prefab")]
     public SerializedDictionary<Class, GameObject> classPrefabs;
 
+    [SerializedDictionary("Class", "Sprite")]
+    public SerializedDictionary<Class, Sprite> classSkillSprites;
+
     [Header("Spawns")]
     [SerializeField] private Transform player1Spawn;
     [SerializeField] private Transform player2Spawn;
@@ -68,6 +71,9 @@ public class GameCycleManager : MonoBehaviour
 
         player1.GetComponent<PlayerMovement>().hpSlider = player1HPSlider;
         player2.GetComponent<PlayerMovement>().hpSlider = player2HPSlider;
+
+        player1CD.parent.GetComponent<Image>().sprite = classSkillSprites.GetValueOrDefault(selectedClasses.player1Class);
+        player2CD.parent.GetComponent<Image>().sprite = classSkillSprites.GetValueOrDefault(selectedClasses.player2Class);
 
         player1.GetComponent<ClassScript>().CDIndicator = player1CD;
         player2.GetComponent<ClassScript>().CDIndicator = player2CD;

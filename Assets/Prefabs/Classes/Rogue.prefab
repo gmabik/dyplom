@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4085832494854196893, guid: 39770893736b4fe4ead1a27e031e3a8c, type: 3}
-  meleeDmg: 4
+  meleeDmg: 12
   attackType: 1
   attackSound: {fileID: 8300000, guid: 70314eecbd96b4a43aed2327ecc77cc3, type: 3}
 --- !u!95 &4528619342858390160
