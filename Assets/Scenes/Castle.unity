@@ -40456,7 +40456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff2e3e2505bb764ab4ee6e24f22a003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 999999999
   dmgCD: 0
   isOnCD: 0
 --- !u!1 &1892099927
@@ -40952,7 +40952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff2e3e2505bb764ab4ee6e24f22a003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 9999999
   dmgCD: 0
   isOnCD: 0
 --- !u!1 &1915046869
