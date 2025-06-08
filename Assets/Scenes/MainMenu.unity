@@ -10761,8 +10761,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -293.38904, y: 273.08777}
-  m_SizeDelta: {x: 750, y: 1174.1116}
+  m_AnchoredPosition: {x: -293.38904, y: -147.17944}
+  m_SizeDelta: {x: 750, y: 1888.4836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &388437658
 MonoBehaviour:
@@ -16282,7 +16282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &667128737
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23236,8 +23236,8 @@ RectTransform:
   - {fileID: 1679604946}
   - {fileID: 1660505494}
   - {fileID: 204873211}
-  - {fileID: 471612558}
   - {fileID: 46518517}
+  - {fileID: 471612558}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -23413,8 +23413,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3157.2388, y: 0}
-  m_SizeDelta: {x: 750, y: 750}
+  m_AnchoredPosition: {x: -3157.2388, y: 2.9766}
+  m_SizeDelta: {x: 750, y: 1398.3347}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1236858499
 MonoBehaviour:
@@ -23623,8 +23623,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -240.6781, y: 273.08777}
-  m_SizeDelta: {x: 750, y: 1174.1116}
+  m_AnchoredPosition: {x: -240.6781, y: -147.17944}
+  m_SizeDelta: {x: 750, y: 1888.4836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305693702
 MonoBehaviour:
@@ -34562,8 +34562,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3851.9126, y: 0}
-  m_SizeDelta: {x: 750, y: 750}
+  m_AnchoredPosition: {x: -3851.9126, y: 2.9766}
+  m_SizeDelta: {x: 750, y: 1398.3347}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1637124228
 MonoBehaviour:
