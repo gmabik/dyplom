@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     public GameObject playGamePopup;
     public GameObject settingsPopup;
     public GameObject exitPopup;
+    public GameObject infoPopup;
+
 
     public AudioSource audioSource;
     public AudioClip hoverSound;
@@ -31,6 +33,16 @@ public class UIManager : MonoBehaviour
             settingsPopup.SetActive(true);
         }
     }
+
+     public void InfosButton()
+    {
+        PlayClickSound();
+        if (infoPopup != null)
+        {
+            infoPopup.SetActive(true);
+        }
+    }
+
 
     public void OnExitButton()
     {
