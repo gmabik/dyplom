@@ -33,7 +33,7 @@ public class EventManager : MonoBehaviour
     {
         StartCoroutine(SpawnEvents());
 
-        cameras.AddRange(Camera.allCameras);
+        //cameras.AddRange(Camera.allCameras);
 
         blackout.SetActive(false);
         StartCoroutine(Blackout());

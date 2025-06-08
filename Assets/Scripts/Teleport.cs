@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Teleport : MonoBehaviour
@@ -6,6 +7,11 @@ public class Teleport : MonoBehaviour
     public Transform teleportTarget;
     public float teleportCooldown = 1f;
     [SerializeField] private bool canTeleport = true;
+    private Sprite startSprite;
+    private void Start()
+    {
+        startSprite = GetComponent<SpriteRenderer>().sprite;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,8 +31,13 @@ public class Teleport : MonoBehaviour
 
     public IEnumerator TeleportCooldown(float time)
     {
+        GameObject particles = transform.GetComponentInChildren<ParticleSystem>().gameObject;
+        particles.SetActive(false);
         canTeleport = false;
         yield return new WaitForSeconds(time);
         canTeleport = true;
+        GetComponent<SpriteRenderer>().sprite = startSprite;
+        GetComponent<Animator>().enabled = true;
+        particles.SetActive(true);
     }
 }

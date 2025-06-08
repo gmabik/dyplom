@@ -9,11 +9,14 @@ public class EarthQuakeScript : EventAbstract
 
     [Range(1f, 10f)]
     [SerializeField] private float portalDisableTime;
+    [SerializeField] private Sprite portalDisableImage;
     protected override void OnSpawn()
     {
         foreach (var portal in EventManager.Instance.portals)
         {
             StartCoroutine(portal.GetComponent<Teleport>().TeleportCooldown(portalDisableTime));
+            portal.GetComponent<SpriteRenderer>().sprite = portalDisableImage;
+            portal.GetComponent<Animator>().enabled = false;
         }
 
         foreach (var cam in EventManager.Instance.cameras)

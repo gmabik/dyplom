@@ -60,9 +60,11 @@ public class GameCycleManager : MonoBehaviour
 
         Camera cam1 = player1.GetComponentInChildren<Camera>();
         cam1.rect = new(0f, 0f, 0.5f, 1f);
+        EventManager.Instance.cameras.Add(cam1);
 
         Camera cam2 = player2.GetComponentInChildren<Camera>();
         cam2.rect = new(0.5f, 0f, 0.5f, 1f);
+        EventManager.Instance.cameras.Add(cam2);
 
         player1.GetComponent<PlayerMovement>().hpSlider = player1HPSlider;
         player2.GetComponent<PlayerMovement>().hpSlider = player2HPSlider;
@@ -87,7 +89,7 @@ public class GameCycleManager : MonoBehaviour
             player2ScoreText.text = selectedClasses.player2Score.ToString();
         }
 
-        string sceneName = "";
+        string sceneName;
         if (selectedClasses.player1Score + selectedClasses.player2Score < 3)
         {
             sceneName = "Castle";
@@ -124,5 +126,9 @@ public class GameCycleManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-
+    private void OnApplicationQuit()
+    {
+        selectedClasses.player1Score = 0;
+        selectedClasses.player2Score = 0;
+    }
 }
