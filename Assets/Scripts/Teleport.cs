@@ -16,7 +16,7 @@ public class Teleport : MonoBehaviour
     {
         if (canTeleport && collision.CompareTag("Player"))
         {
-            collision.transform.position = teleportTarget.position;
+            collision.transform.position = new(teleportTarget.position.x, teleportTarget.position.y, collision.transform.position.z);
 
             StartCoroutine(TeleportCooldown(teleportCooldown));
 
