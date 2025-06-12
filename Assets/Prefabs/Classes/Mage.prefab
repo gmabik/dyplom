@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7005484132938972296, guid: f7e23f5b59627c04b8f48fc3c42fb5ba, type: 3}
-  meleeDmg: 2
+  meleeDmg: 4
   attackType: 0
   attackSound: {fileID: 8300000, guid: 07c891288550d4d4e865014d6064100f, type: 3}
 --- !u!95 &6728124176545391314
