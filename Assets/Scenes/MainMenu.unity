@@ -24063,7 +24063,7 @@ MonoBehaviour:
   classDesc:
     _serializedList:
     - Key: 0
-      Value: Your skill gives you immunity to all damage for 2 seconds
+      Value: Your skill gives you immunity to all damage for 1 second
     - Key: 1
       Value: Your skill lets you unleash a volley of 3 arrows in targeted direction
     - Key: 2
