@@ -140,7 +140,7 @@ public abstract class Movement : MonoBehaviour, IDamageable
     public IEnumerator BuffSpeed()
     {
         var a = speed;
-        speed *= 1.5f;
+        speed *= 1.2f;
         yield return new WaitForSeconds(5f);
         speed = a;
     }
@@ -149,7 +149,7 @@ public abstract class Movement : MonoBehaviour, IDamageable
     {
         for (int i = 0; i < 5; i++)
         {
-            hp += 10;
+            hp += 2;
             UpdateHPUI();
             yield return new WaitForSeconds(1f);
         }

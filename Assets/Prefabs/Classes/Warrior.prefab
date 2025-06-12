@@ -231,7 +231,7 @@ MonoBehaviour:
   skillAudio: {fileID: 8300000, guid: d129dca5d7601de49add7d05eda062dd, type: 3}
   skillCD: 5
   CDIndicator: {fileID: 0}
-  invincibleTime: 2
+  invincibleTime: 1
 --- !u!82 &7003950000870911677
 AudioSource:
   m_ObjectHideFlags: 0
